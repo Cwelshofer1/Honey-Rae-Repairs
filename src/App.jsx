@@ -5,7 +5,7 @@ import "./App.css"
 export const App = () => {
   const [allTickets, setAllTickets] = useState([])
   const [showEmergencyOnly, setShowEmergencyOnly] = useState(false)
-  const [filteredTickets, setFilteredTickets] =useState([])
+  const [filteredTickets, setFilteredTickets] = useState([])
 
 
 useEffect(() => {
