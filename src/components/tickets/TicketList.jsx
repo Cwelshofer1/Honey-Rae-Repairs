@@ -5,7 +5,7 @@ import { TicketFilter } from "./TicketFilter.jsx"
 import "./Ticket.css"
 
 export const TicketList = () => {
-    const [allTickets, setAllTickets] = useState([])
+  const [allTickets, setAllTickets] = useState([])
   const [showEmergencyOnly, setShowEmergencyOnly] = useState(false)
   const [filteredTickets, setFilteredTickets] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
