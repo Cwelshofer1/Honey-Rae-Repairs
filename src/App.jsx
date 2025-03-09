@@ -1,38 +1,24 @@
-import { Routes, Route, Outlet } from "react-router-dom"
-import { NavBar } from "./components/nav/NavBar.jsx"
+import { Routes, Route } from "react-router-dom"
 import "./App.css"
-import { CustomerList } from "./components/customers/CustomersList.jsx"
-import { TicketList } from "./components/tickets/TicketList.jsx"
-import { EmployeeList } from "./components/Employees/EmployeesList.jsx"
-import { Welcome } from "./components/welcome/Welcome.jsx"
-import { CustomerDetails } from "./components/customers/CustomerDetails.jsx"
-import { EmployeeDetails } from "./components/Employees/EmployeeDetails.jsx"
+import { Register } from "./components/auth/Register.jsx"
+import { Login } from "./components/auth/Login.jsx"
+import { Authorized } from "./views/Authorized.jsx"
+import { ApplicationViews } from "./views/ApplicationViews.jsx"
 
 export const App = () => {
   return(
     
     <Routes>
-      <Route path="/" element={
-        <>
-      <NavBar/>
-      <Outlet/>
-      
-      </>
-      }
-      >
-        <Route index element={<Welcome/>}/>
-        <Route path="tickets" element={<TicketList/>}/>
-        
-        <Route path="employees">
-          <Route index element={ <EmployeeList/>}/>
-          <Route path=":employeeId" element={<EmployeeDetails/>}/>
-          </Route>
-        <Route path="customers">
-          <Route index element={<CustomerList/>}/>
-          <Route path=":customerId" element={<CustomerDetails/>} /> {/* /customers/:customerId*/}
-        </Route>
-    
-      </Route>
+      <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={<Register/>} />
+      <Route  path="*" 
+      element= {
+        //Check if the user is authorized first
+      <Authorized>
+       {/*ApplicationViews is the child component of authorized*/}
+        <ApplicationViews/>
+      </Authorized>
+      }/>
       </Routes>
 
 )
