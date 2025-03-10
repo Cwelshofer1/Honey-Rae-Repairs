@@ -8,6 +8,7 @@ import { CustomerList } from "../components/customers/CustomersList.jsx"
 import { CustomerDetails } from "../components/customers/CustomerDetails.jsx"
 import { Routes } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { EmployeeForm } from "../components/forms/EmployeeForm.jsx"
 
 export const ApplicationViews = () => {
 const [currentUser, setCurrentUser] = useState ({})
@@ -42,6 +43,7 @@ useEffect(() => {
           <Route index element={<CustomerList/>}/>
           <Route path=":customerId" element={<CustomerDetails/>} /> {/* /customers/:customerId*/}
         </Route>
+        <Route path="profile" element={<EmployeeForm currentUser={currentUser}/> } />
     
       </Route>
       </Routes></>
